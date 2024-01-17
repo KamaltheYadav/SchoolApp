@@ -145,11 +145,6 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                           text: 'Holidays',
                         ),
                         SizedBox(height: 10),
-                        textRow(
-                          color: Colors.indigo,
-                          data: '10',
-                          text: 'Holidays',
-                        ),
                         Divider(),
                       ],
                     ),

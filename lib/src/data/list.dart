@@ -42,13 +42,13 @@ List titles = [
 ];
 
 List page = [
-  assignmentScreen(),
+  AssignmentScreen(),
   AttendanceScreen(),
   resultScreen(),
   feesScreen(),
   timeTableScreen(),
   QuizScreen(),
-  calenderScreen(),
+  CalenderScreen(),
   eventsScreen(),
   galleryScreen(),
   newsScreen(),

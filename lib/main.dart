@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:project1/src/screens/assignmet/assignment_screen.dart';
+import 'package:project1/src/screens/attendance/attendance.dart';
+import 'package:project1/src/screens/calender/calender_screen.dart';
 import 'package:project1/src/screens/quiz/Score/score_screen.dart';
 import 'package:project1/src/screens/quiz/quiz_sceen.dart';
 import 'package:project1/src/utils/screen_size.dart';
@@ -17,8 +20,8 @@ class MyApp extends StatelessWidget {
     screenSize.init(context: context);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: QuizScreen(),
-      home: Dashboard(),
+      home: AttendanceScreen(),
+      // home: Dashboard(),
     );
   }
 }
