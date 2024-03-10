@@ -96,7 +96,7 @@ class HomeWidget extends StatelessWidget {
                     children: [
                       navText(
                           navHeight: navHeight,
-                          text: 'Namaskar',
+                          text: 'Namaste',
                           color: Theme.of(context).colorScheme.secondary),
                       navText(
                           navHeight: navHeight,
