@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project1/src/screens/fees/fees_items.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
-import 'package:project1/src/utils/color.dart';
 
 class feesScreen extends StatefulWidget {
   @override
@@ -15,12 +14,12 @@ class _feesScreenState extends State<feesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(
         title: 'Fees Screen',
       ),
       body: Container(
-        decoration: buildBodyDecoration(),
+        decoration: buildBodyDecoration(context),
         padding: EdgeInsets.only(
           top: 10,
         ),
@@ -144,34 +143,22 @@ class _feesScreenState extends State<feesScreen> {
               ),
             ElevatedButton(
               onPressed: () {
-                setState(() {
-                  showDetails = !showDetails;
-                });
+                setState(() {});
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                backgroundColor: Theme.of(context).colorScheme.primary,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    showDetails ? 'See Less' : 'See More',
+                    'See More',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.indigo[50],
                     ),
                   ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Icon(
-                    showDetails
-                        ? Icons.keyboard_arrow_up
-                        : Icons.keyboard_arrow_down,
-                    color: Colors.indigo.shade50,
-                    size: 27,
-                  )
                 ],
               ),
             ),

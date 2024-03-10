@@ -40,6 +40,7 @@ dependencies:
   iconsax: ^0.0.8
   websafe_svg: ^3.0.1+1
   get: ^4.6.6
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:

@@ -50,7 +50,7 @@ List page = [
   QuizScreen(),
   CalenderScreen(),
   eventsScreen(),
-  galleryScreen(),
+  GalleryScreen(),
   newsScreen(),
   libraryScreen(),
   busScreen(),

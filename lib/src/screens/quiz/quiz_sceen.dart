@@ -5,7 +5,6 @@ import 'package:project1/src/screens/quiz/elevated_button.dart';
 import 'package:project1/src/screens/quiz/progress_bar.dart';
 import 'package:project1/src/screens/quiz/question_card.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
-import 'package:project1/src/utils/color.dart';
 import 'package:project1/src/utils/screen_size.dart';
 
 class QuizScreen extends StatelessWidget {
@@ -25,7 +24,7 @@ class QuizScreen extends StatelessWidget {
                     Container(
                       height: screenSize.screenHeight * .23,
                       decoration: BoxDecoration(
-                        color: AppColors.primary,
+                        color: Theme.of(context).colorScheme.primary,
                         borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(20),
                         ),
@@ -81,13 +80,13 @@ class QuizScreen extends StatelessWidget {
                   children: [
                     _questionController.isAnswered
                         ? ElevatedButtonWidget(
-                            color: AppColors.primary,
+                            color: Theme.of(context).colorScheme.primary,
                             action: _questionController.nextQuestion,
                             title: 'NEXT',
                             textColor: Colors.white,
                           )
                         : ElevatedButtonWidget(
-                            color: AppColors.secondary,
+                            color: Theme.of(context).colorScheme.secondary,
                             action: _questionController.skipQuestion,
                             title: 'SKIP',
                             textColor: Colors.indigo.shade900,

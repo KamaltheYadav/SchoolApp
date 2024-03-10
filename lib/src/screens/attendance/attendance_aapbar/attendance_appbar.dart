@@ -1,7 +1,6 @@
 // icons.dart
 import 'package:flutter/material.dart';
 import 'package:project1/src/utils/appbar/back_icon.dart';
-import 'package:project1/src/utils/color.dart';
 
 class CustomBackButton extends StatefulWidget implements PreferredSizeWidget {
   final List<String> days;
@@ -21,7 +20,7 @@ class _CustomBackButtonState extends State<CustomBackButton> {
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: 80,
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       leading: BackIcon(),
       title: buildDaySelector(),
     );
@@ -60,7 +59,9 @@ class _CustomBackButtonState extends State<CustomBackButton> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: isActive ? AppColors.secondary : Colors.transparent,
+          color: isActive
+              ? Theme.of(context).colorScheme.primary
+              : Colors.transparent,
           borderRadius: isActive ? BorderRadius.circular(10.0) : null,
         ),
         alignment: Alignment.center,
@@ -69,7 +70,9 @@ class _CustomBackButtonState extends State<CustomBackButton> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 14.0,
-            color: isActive ? AppColors.primary : AppColors.secondary,
+            color: isActive
+                ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).colorScheme.secondary,
           ),
         ),
       ),

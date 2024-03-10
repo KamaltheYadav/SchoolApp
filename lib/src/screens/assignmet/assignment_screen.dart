@@ -3,18 +3,17 @@ import 'package:project1/src/data/assignment_data.dart';
 import 'package:project1/src/screens/assignmet/assignment_items.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
-import 'package:project1/src/utils/color.dart';
 
 class AssignmentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(
         title: 'Assignment Screen',
       ),
       body: Container(
-        decoration: buildBodyDecoration(),
+        decoration: buildBodyDecoration(context),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -38,7 +37,7 @@ class AssignmentScreen extends StatelessWidget {
                         margin: EdgeInsets.only(bottom: 30),
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.secondary,
                           borderRadius: BorderRadius.circular(14.0),
                           boxShadow: [
                             BoxShadow(
@@ -57,13 +56,18 @@ class AssignmentScreen extends StatelessWidget {
                                   horizontal: 15, vertical: 8),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                color: AppColors.primary.withOpacity(
-                                    .2), // You can customize the color
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .primary
+                                    .withOpacity(
+                                        .2), // You can customize the color
                               ),
                               child: Text(
                                 currentItem.subjectName,
                                 style: TextStyle(
-                                  color: AppColors.primary, // Text color
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary, // Text color
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),

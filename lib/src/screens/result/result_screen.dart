@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
-import 'package:project1/src/utils/color.dart';
 
 class resultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(
         title: 'Result Screen',
       ),
       body: Container(
-        decoration: buildBodyDecoration(),
+        decoration: buildBodyDecoration(context),
         padding: EdgeInsets.only(
           top: 10,
         ),
@@ -108,7 +107,7 @@ class resultScreen extends StatelessWidget {
               // Handle "See More" button action
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
+              backgroundColor: Colors.indigo.shade500,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project1/src/utils/color.dart';
 
 class DrawBar extends StatefulWidget {
+  final Function(bool) onDarkModeChanged;
+
+  DrawBar({required this.onDarkModeChanged});
   @override
   _DrawBarState createState() => _DrawBarState();
 }
@@ -13,7 +15,7 @@ class _DrawBarState extends State<DrawBar> {
   Widget build(BuildContext context) {
     return Drawer(
       width: 255,
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SafeArea(
@@ -27,7 +29,7 @@ class _DrawBarState extends State<DrawBar> {
                     },
                     child: Icon(
                       Icons.arrow_back_ios,
-                      color: AppColors.secondary,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   SizedBox(
@@ -36,7 +38,7 @@ class _DrawBarState extends State<DrawBar> {
                   Text(
                     'Settings',
                     style: TextStyle(
-                        color: AppColors.secondary,
+                        color: Theme.of(context).colorScheme.secondary,
                         fontSize: 18,
                         fontWeight: FontWeight.w600),
                   ),
@@ -48,7 +50,7 @@ class _DrawBarState extends State<DrawBar> {
                   Text(
                     'Dark Mode',
                     style: TextStyle(
-                      color: AppColors.secondary,
+                      color: Theme.of(context).colorScheme.secondary,
                       fontSize: 16,
                     ),
                   ),
@@ -56,12 +58,12 @@ class _DrawBarState extends State<DrawBar> {
                   IconButton(
                     icon: Icon(
                       isDarkMode ? Icons.brightness_3 : Icons.wb_sunny,
-                      color: AppColors.secondary,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () {
                       setState(() {
                         isDarkMode = !isDarkMode;
-                        _updateTheme();
+                        widget.onDarkModeChanged(isDarkMode);
                       });
                     },
                   ),

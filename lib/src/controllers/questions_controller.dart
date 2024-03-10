@@ -45,6 +45,12 @@ class QuestionController extends GetxController
 
   @override
   void onInit() {
+    // Shuffle the questions to make them random
+    _questions.shuffle();
+
+    // Take the first 10 questions for the quiz
+    _questions = _questions.take(10).toList();
+
     _animationController =
         AnimationController(duration: Duration(seconds: 30), vsync: this);
     _animation = IntTween(begin: 0, end: 1000).animate(_animationController)
@@ -80,7 +86,7 @@ class QuestionController extends GetxController
     // Check if all questions are answered (You can add your logic here)
 
     _totalNumber++;
-    if (_questionNumber.value < _questions.length) {
+    if (_questionNumber.value < 10) {
       _questionNumber.value++;
       _animationController.reset();
       _animationController.forward();
@@ -105,7 +111,7 @@ class QuestionController extends GetxController
 
     // Check if all questions are answered (You can add your logic here)
 
-    if (_questionNumber.value < _questions.length) {
+    if (_questionNumber.value < 10) {
       _skipNumber++;
       _questionNumber++;
       _animationController.reset();

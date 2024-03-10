@@ -3,7 +3,6 @@ import 'package:project1/src/data/attendance_data.dart';
 import 'package:project1/src/screens/attendance/text_row.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
-import 'package:project1/src/utils/color.dart';
 import 'package:clean_nepali_calendar/clean_nepali_calendar.dart';
 import 'package:project1/src/utils/screen_size.dart';
 
@@ -23,10 +22,10 @@ class _CalenderScreenState extends State<CalenderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(title: 'Calender'),
       body: Container(
-        decoration: buildBodyDecoration(),
+        decoration: buildBodyDecoration(context),
         child: Container(
           width: screenSize.screenWidth,
           height: screenSize.screenHeight,
@@ -58,12 +57,12 @@ class _CalenderScreenState extends State<CalenderScreen> {
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: isSelected
-                                      ? AppColors.primary
+                                      ? Theme.of(context).colorScheme.primary
                                       : Colors.transparent,
                                   width: isSelected ? 2.0 : 0.0,
                                 ),
                                 color: isToday
-                                    ? AppColors.primary
+                                    ? Theme.of(context).colorScheme.primary
                                     : null, // Transparent background for selected day
                               ),
                               child: Center(

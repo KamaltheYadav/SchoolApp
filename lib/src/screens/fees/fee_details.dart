@@ -5,7 +5,6 @@ import 'package:project1/src/screens/fees/fees_items.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
 import 'package:project1/src/utils/screen_size.dart';
-import 'package:project1/src/utils/color.dart';
 
 class FeeDetailsPage extends StatelessWidget {
   final String receiptNo;
@@ -25,10 +24,10 @@ class FeeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(title: '$month Fees'),
       body: Container(
-        decoration: buildBodyDecoration(),
+        decoration: buildBodyDecoration(context),
         height: screenSize.screenHeight,
         width: screenSize.screenWidth,
         child: Padding(

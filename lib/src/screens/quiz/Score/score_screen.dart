@@ -5,7 +5,6 @@ import 'package:project1/src/screens/dashboard/dashboard.dart';
 import 'package:project1/src/screens/time_table/time_table_screen.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:project1/src/utils/screen_size.dart';
-import '../../../utils/color.dart';
 
 class ScoreScreen extends StatelessWidget {
   const ScoreScreen({Key? key});
@@ -78,7 +77,7 @@ class ScoreScreen extends StatelessWidget {
                     Get.to(Dashboard());
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: AppColors.secondary,
+                    primary: Theme.of(context).colorScheme.secondary,
                     padding: EdgeInsets.symmetric(
                       horizontal: screenSize.screenWidth * .18,
                     ),

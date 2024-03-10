@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
-import 'package:project1/src/utils/color.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -28,7 +27,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 2',
       },
       {
@@ -43,7 +42,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 1',
       },
       {
@@ -70,7 +69,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 2',
       },
       {
@@ -94,7 +93,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 1',
       },
       {
@@ -115,7 +114,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 1',
       },
       {
@@ -136,7 +135,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 1',
       },
       {
@@ -157,7 +156,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
       {
         'subject': 'Mathematics',
         'time': '08:00 - 08:45',
-        'teacher': 'John Doe',
+        'teacher': 'Khadak Shahi',
         'period': 'Period 1',
       },
       {
@@ -181,7 +180,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(
         title: 'Time Table',
       ),
@@ -191,7 +190,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
 
   Widget buildTimetableBody() {
     return Container(
-      decoration: buildBodyDecoration(),
+      decoration: buildBodyDecoration(context),
       child: ClipRRect(
         child: Stack(
           children: [
@@ -216,11 +215,11 @@ class _timeTableScreenState extends State<timeTableScreen> {
       height: 37.0,
       width: MediaQuery.of(context).size.width - 30,
       decoration: BoxDecoration(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(15.0),
         border: Border.all(
           // color: Color.fromRGBO(13, 141, 144, 1.0),
-          color: AppColors.primary,
+          color: Theme.of(context).colorScheme.primary,
           width: 2.0,
         ),
       ),
@@ -251,9 +250,13 @@ class _timeTableScreenState extends State<timeTableScreen> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: isActive ? AppColors.primary : Colors.transparent,
+          color: isActive
+              ? Theme.of(context).colorScheme.primary
+              : Colors.transparent,
           border: Border.all(
-            color: isActive ? AppColors.primary : Color.fromARGB(0, 27, 23, 23),
+            color: isActive
+                ? Theme.of(context).colorScheme.primary
+                : Color.fromARGB(0, 27, 23, 23),
             width: 2.0,
           ),
           borderRadius: isActive ? BorderRadius.circular(10.0) : null,
@@ -263,7 +266,9 @@ class _timeTableScreenState extends State<timeTableScreen> {
           day,
           style: TextStyle(
             fontSize: 16.0,
-            color: isActive ? AppColors.secondary : AppColors.black,
+            color: isActive
+                ? Theme.of(context).colorScheme.secondary
+                : Colors.black,
           ),
         ),
       ),
@@ -311,7 +316,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
               Text(
                 data['subject'] ?? 'No Subject',
                 style: TextStyle(
-                    color: AppColors.black,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0),
               ),
@@ -319,7 +324,7 @@ class _timeTableScreenState extends State<timeTableScreen> {
               Text(
                 data['time'] ?? 'No Time',
                 style: TextStyle(
-                  color: AppColors.black,
+                  color: Colors.black,
                 ),
               ),
               SizedBox(height: 20.0),
@@ -331,13 +336,13 @@ class _timeTableScreenState extends State<timeTableScreen> {
                   Text(
                     data['teacher'] ?? '',
                     style: TextStyle(
-                      color: AppColors.black,
+                      color: Colors.black,
                     ),
                   ),
                   Text(
                     data['period'] ?? '',
                     style: TextStyle(
-                      color: AppColors.black,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

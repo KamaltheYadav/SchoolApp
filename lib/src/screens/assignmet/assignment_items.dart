@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project1/src/utils/color.dart';
 
 class assignmentItems extends StatelessWidget {
   final dynamic title;

@@ -3,7 +3,6 @@ import 'package:project1/src/data/attendance_data.dart';
 import 'package:project1/src/screens/attendance/text_row.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
-import 'package:project1/src/utils/color.dart';
 import 'package:clean_nepali_calendar/clean_nepali_calendar.dart';
 import 'package:project1/src/utils/screen_size.dart';
 
@@ -23,14 +22,14 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomBackButton(title: 'Attendance'),
-      // appBar: CustomBackButton(
-      //   days: ['ATTENDANCE', 'CALENDER'],
-      //   selectedDay: 'ATTENDANCE',
-      // ),
+      //  appBar: CustomBackButton(
+      //     days: ['ATTENDANCE', 'CALENDER'],
+      //     selectedDay: 'ATTENDANCE',
+      //   ),
       body: Container(
-        decoration: buildBodyDecoration(),
+        decoration: buildBodyDecoration(context),
         child: Container(
           width: screenSize.screenWidth,
           height: screenSize.screenHeight,
@@ -54,20 +53,21 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                               calendarStyle,
                               isWeekend) {
                             final day = date.day.toString();
-
+                            print(absentDates.contains(date));
                             bool isAbsentDate = absentDates.contains(date);
+                            // print(absentDates.contains(date));
 
                             return Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: isSelected
-                                      ? AppColors.primary
+                                      ? Theme.of(context).colorScheme.primary
                                       : Colors.transparent,
                                   width: isSelected ? 2.0 : 0.0,
                                 ),
                                 color: isToday
-                                    ? AppColors.primary
+                                    ? Theme.of(context).colorScheme.primary
                                     : (isSelected
                                         ? Colors.transparent
                                         : (isAbsentDate

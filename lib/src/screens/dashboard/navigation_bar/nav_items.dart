@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project1/src/utils/color.dart';
 
 class navigationItems extends StatelessWidget {
   final dynamic IconName;
@@ -17,7 +16,7 @@ class navigationItems extends StatelessWidget {
     return NavigationDestination(
       selectedIcon: Icon(
         selectIcon ?? IconName,
-        color: AppColors.primary,
+        color: Theme.of(context).colorScheme.secondary,
         size: 26,
       ),
       icon: Icon(IconName),

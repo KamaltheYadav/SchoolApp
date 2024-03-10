@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:project1/src/utils/screen_size.dart';
 
-class mainIcon extends StatelessWidget {
-  const mainIcon({
-    super.key,
-    required this.imgData,
-    required this.titles,
-    required this.index,
-  });
+class DashboardCard extends StatelessWidget {
+  final String name;
 
-  final List imgData;
-  final List titles;
-  final int index;
+  final String imgpath;
+
+  const DashboardCard({required this.name, required this.imgpath});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +13,8 @@ class mainIcon extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     return Container(
       padding: EdgeInsets.all(10),
+      height: height * 0.17,
+      width: width * 0.30,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,
@@ -33,22 +29,17 @@ class mainIcon extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Container(
-              // height: height * 0.1,
-              // width: width * 0.50,
-
-              child: Image.asset(
-                imgData[index],
-                width: 50,
-              ),
+            Image.asset(
+              "assets/${imgpath}",
+              width: 60,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
-                titles[index],
+                "${name}",
                 style: TextStyle(
-                  fontSize: 10,
                   fontWeight: FontWeight.bold,
+                  fontSize: 15,
                 ),
               ),
             ),

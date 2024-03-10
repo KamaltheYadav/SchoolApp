@@ -1,15 +1,14 @@
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:project1/main.dart';
 import 'package:project1/src/controllers/questions_controller.dart';
-import 'package:project1/src/utils/custom_icons_icons.dart';
-import 'package:project1/src/data/list.dart';
+import 'package:project1/src/screens/dashboard/widgets/home_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/src/screens/dashboard/main_icons.dart';
 import 'package:project1/src/screens/dashboard/navigation_bar/nav_items.dart';
-import 'package:project1/src/screens/dashboard/hero_text.dart';
-import 'package:project1/src/utils/build_body_decoration.dart';
+import 'package:project1/src/screens/dashboard/widgets/messages_widget.dart';
+import 'package:project1/src/screens/dashboard/widgets/notification_widgets.dart';
+import 'package:project1/src/screens/dashboard/widgets/profile_widget.dart';
 import 'package:project1/src/utils/screen_size.dart';
-import 'package:project1/src/utils/color.dart';
 import '../drawer/draw_bar.dart';
 
 class Dashboard extends StatefulWidget {
@@ -54,8 +53,8 @@ class _DashboardState extends State<Dashboard> {
               ),
             ],
             selectedIndex: currentPageIndex,
-            indicatorColor: Colors.indigo[100],
-            backgroundColor: AppColors.secondary,
+            indicatorColor: Colors.indigo.shade400,
+            backgroundColor: Theme.of(context).colorScheme.secondary,
             labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
             onDestinationSelected: (int index) {
               setState(() {
@@ -65,140 +64,31 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
       ),
-      body: Container(
-        color: AppColors.primary,
-        height: height,
-        width: width,
-        child: Column(
-          children: [
-            Container(
-              height: height * 0.25,
+      body: currentPageIndex == 0 // Check if the selected index is for Home
+          ? HomeWidget(
+              height: height,
               width: width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: navHeight * 0.25,
-                      left: 15,
-                      right: 15,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: InkWell(
-                            onTap: () {
-                              // Open the drawer when the sort icon is tapped
-                              _scaffoldKey.currentState!.openDrawer();
-                            },
-                            child: Icon(
-                              CustomIcons.menu,
-                              color: Colors.white,
-                              size: navHeight * 0.1,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          //change here for the whole device using the height
-                          height: navHeight * 0.25,
-                          width: navHeight * 0.25,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.white54,
-                            image: DecorationImage(
-                              image: AssetImage("images/woman.png"),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: navHeight * 0.01,
-                      left: 30,
-                      bottom: navHeight * 0.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        navText(
-                            navHeight: navHeight,
-                            text: 'Hello',
-                            color: AppColors.secondary),
-                        navText(
-                            navHeight: navHeight,
-                            text: 'Kamal Yadav',
-                            color: Colors.indigo[100]),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              decoration: buildBodyDecoration(),
-              height: height * 0.65,
-              width: width,
-              padding: EdgeInsets.only(
-                bottom: 0,
-                top: 4,
-              ),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  childAspectRatio: 1.1,
-                  mainAxisSpacing: 25,
-                ),
-                shrinkWrap: true,
-                itemCount: imgData.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      //only for the QuestionScreen
-                      _questionController.reset();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => page[index],
-                        ),
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsetsDirectional.symmetric(
-                        vertical: 8,
-                        horizontal: 20,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black26,
-                            spreadRadius: 1,
-                            blurRadius: 6,
-                          )
-                        ],
-                      ),
-                      child: mainIcon(
-                          imgData: imgData, titles: titles, index: index),
-                    ),
-                  );
-                },
-              ),
-            ),
-            Container(
-              height: height * 0.0,
-              width: width,
-            ),
-          ],
-        ),
+              navHeight: navHeight,
+              scaffoldKey: _scaffoldKey,
+              questionController: _questionController,
+            )
+          : currentPageIndex == 1 // Check if the selected index is for Message
+              ? MessageWidget()
+              : currentPageIndex ==
+                      2 // Check if the selected index is for Message
+                  ? NotificationWidget()
+                  : currentPageIndex ==
+                          3 // Check if the selected index is for Message
+                      ? ProfileWidget()
+                      : Container(),
+      drawer: DrawBar(
+        onDarkModeChanged: (bool isDarkMode) {
+          setState(() {
+            // Update the dark mode state and theme mode
+            MyApp.of(context).updateDarkMode(isDarkMode);
+          });
+        },
       ),
-      drawer: DrawBar(),
     );
   }
 }
