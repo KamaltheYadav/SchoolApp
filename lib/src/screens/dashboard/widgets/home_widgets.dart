@@ -15,6 +15,7 @@ class HomeWidget extends StatelessWidget {
     required this.navHeight,
     required GlobalKey<ScaffoldState> scaffoldKey,
     required QuestionController questionController,
+    required this.setCurrentPageIndex,
   })  : _scaffoldKey = scaffoldKey,
         _questionController = questionController;
 
@@ -23,6 +24,7 @@ class HomeWidget extends StatelessWidget {
   final double navHeight;
   final GlobalKey<ScaffoldState> _scaffoldKey;
   final QuestionController _questionController;
+  final Function(int) setCurrentPageIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,8 @@ class HomeWidget extends StatelessWidget {
                       Container(
                         child: InkWell(
                           onTap: () {
-                            // Open the drawer when the sort icon is tapped
+                            //here want to change the value of the currentPageIndex
+                            setCurrentPageIndex(3);
                           },
                           child: Container(
                             height: navHeight * 0.25,

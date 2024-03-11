@@ -22,6 +22,12 @@ class _DashboardState extends State<Dashboard> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   QuestionController _questionController = Get.put(QuestionController());
 
+  void setCurrentPageIndex(int index) {
+    setState(() {
+      currentPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     width = screenSize.screenWidth;
@@ -71,6 +77,7 @@ class _DashboardState extends State<Dashboard> {
               navHeight: navHeight,
               scaffoldKey: _scaffoldKey,
               questionController: _questionController,
+              setCurrentPageIndex: setCurrentPageIndex,
             )
           : currentPageIndex == 1 // Check if the selected index is for Message
               ? MessageWidget()

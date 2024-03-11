@@ -20,11 +20,11 @@ class AssignmentScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 10),
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 8.0),
+                  // SizedBox(height: 8.0),
 
                   // Use ListView.builder for dynamic assignment cards
                   ListView.builder(
@@ -38,7 +38,7 @@ class AssignmentScreen extends StatelessWidget {
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.secondary,
-                          borderRadius: BorderRadius.circular(14.0),
+                          borderRadius: BorderRadius.circular(15.0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),

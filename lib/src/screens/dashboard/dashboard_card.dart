@@ -29,9 +29,11 @@ class DashboardCard extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Image.asset(
-              "assets/${imgpath}",
-              width: 60,
+            GestureDetector(
+              child: Image.asset(
+                "assets/${imgpath}",
+                width: 60,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),

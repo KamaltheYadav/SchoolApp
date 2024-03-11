@@ -57,12 +57,17 @@ class _DrawBarState extends State<DrawBar> {
                   Spacer(),
                   IconButton(
                     icon: Icon(
-                      isDarkMode ? Icons.brightness_3 : Icons.wb_sunny,
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Icons.wb_sunny
+                          : Icons.brightness_3,
                       color: Theme.of(context).colorScheme.secondary,
                     ),
                     onPressed: () {
                       setState(() {
-                        isDarkMode = !isDarkMode;
+                        Theme.of(context).brightness == Brightness.light
+                            ? isDarkMode = !isDarkMode
+                            : isDarkMode = isDarkMode;
+
                         widget.onDarkModeChanged(isDarkMode);
                       });
                     },
@@ -75,9 +80,5 @@ class _DrawBarState extends State<DrawBar> {
         ),
       ),
     );
-  }
-
-  void _updateTheme() {
-    // Update the app theme based on the dark mode status
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project1/src/utils/screen_size.dart';
 
 class mainIcon extends StatelessWidget {
   const mainIcon({
