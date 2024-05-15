@@ -1,5 +1,8 @@
 # SchoolApp: Streamlining School Management with Flutter
 
+![Screenshot_2024-05-15-05-46-13-53_82f5d4f7f4d1186715a2a0e0f70c59ca](https://github.com/KamaltheYadav/SchoolApp/assets/101328057/900887fa-f273-4a54-9082-e1230e999e8b)
+
+
 **SchoolApp** is a versatile and intuitive school management application crafted with Flutter and Dart, designed to simplify administrative tasks and enhance communication within educational institutions.
 
 ## Key Features:
