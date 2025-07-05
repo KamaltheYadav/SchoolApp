@@ -69,6 +69,8 @@ class QuestionController extends GetxController
   }
 
   void checkAns(Question question, int selectedIndex) {
+     if (_isAnswered) return;
+     
     _isAnswered = true;
     _correctAns = question.answer;
     _selectedAns = selectedIndex;
