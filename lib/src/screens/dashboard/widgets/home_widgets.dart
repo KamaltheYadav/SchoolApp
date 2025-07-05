@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project1/src/controllers/questions_controller.dart';
 import 'package:project1/src/data/list.dart';
-import 'package:project1/src/data/questions.dart';
 import 'package:project1/src/screens/dashboard/hero_text.dart';
 import 'package:project1/src/screens/dashboard/main_icons.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';

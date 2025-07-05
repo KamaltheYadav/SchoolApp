@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project1/src/data/attendance_data.dart';
-import 'package:project1/src/screens/attendance/text_row.dart';
 import 'package:project1/src/utils/appbar/appbar.dart';
 import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:clean_nepali_calendar/clean_nepali_calendar.dart';

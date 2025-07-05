@@ -4,7 +4,7 @@ ThemeData LightTheme = ThemeData(
     brightness: Brightness.light,
     colorScheme: ColorScheme.light(
       secondary: Colors.white,
-      background: Colors.white,
+      surface: Colors.white,
       primary: Colors.indigo,
     ));
 
@@ -13,5 +13,5 @@ ThemeData DarkTheme = ThemeData(
     colorScheme: ColorScheme.dark(
   primary: Colors.black45,
   secondary: Colors.white,
-  background: Colors.black,
+  surface: Colors.black,
 ));

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project1/src/controllers/questions_controller.dart';
 import 'package:project1/src/screens/dashboard/dashboard.dart';
-import 'package:project1/src/screens/time_table/time_table_screen.dart';
-import 'package:project1/src/utils/build_body_decoration.dart';
 import 'package:project1/src/utils/screen_size.dart';
 
 class ScoreScreen extends StatelessWidget {
@@ -77,7 +75,7 @@ class ScoreScreen extends StatelessWidget {
                     Get.to(Dashboard());
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).colorScheme.secondary,
+                    backgroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(
                       horizontal: screenSize.screenWidth * .18,
                     ),
