@@ -55,7 +55,14 @@ class QuestionController extends GetxController
     _animation = IntTween(begin: 0, end: 1000).animate(_animationController)
       ..addListener(() {
         update();
-      });
+      })
+      
+       ..addStatusListener((status) {
+      // ✅ This is the missing part
+      if (status == AnimationStatus.completed) {
+        nextQuestion(); // move to next question when time is up
+      }
+    });;
 
     _animationController.forward();
     super.onInit();
